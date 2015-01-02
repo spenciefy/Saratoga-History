@@ -7,13 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C300C731A4DE39E0013C2AD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C300C721A4DE39E0013C2AD /* MapKit.framework */; };
+		6C300C761A4DE76D0013C2AD /* SHPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C751A4DE76D0013C2AD /* SHPlace.m */; };
+		6C300C791A4DE9EA0013C2AD /* SHPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */; };
+		6C300C7C1A4DEAE50013C2AD /* SHPlaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C7B1A4DEAE50013C2AD /* SHPlaceManager.m */; };
+		6C300CA11A4E4DDE0013C2AD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C300CA01A4E4DDE0013C2AD /* QuartzCore.framework */; };
+		6C300CA31A4E4DF80013C2AD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C300CA21A4E4DF80013C2AD /* CoreLocation.framework */; };
+		6C300CA41A4E64A80013C2AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1EF6F1A441DC200F6702F /* Main.storyboard */; };
+		6C886A961A4EA65700088119 /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */; };
+		6C886A9E1A4EAA6700088119 /* pausebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A981A4EAA6700088119 /* pausebutton.png */; };
+		6C886A9F1A4EAA6700088119 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A991A4EAA6700088119 /* playbutton.png */; };
+		6C886AA01A4EAA6700088119 /* SCWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886A9B1A4EAA6700088119 /* SCWaveformView.m */; };
+		6C886AA11A4EAA6700088119 /* SYWaveformPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */; };
+		6C886AA51A4F4C4F00088119 /* EScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886AA41A4F4C4F00088119 /* EScrollerView.m */; };
+		6C886AA71A4F63D200088119 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C886AA61A4F63D200088119 /* libsqlite3.dylib */; };
+		6C886AA91A4F7E0D00088119 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C886AA81A4F7E0D00088119 /* SystemConfiguration.framework */; };
+		6C886AAC1A4F7E2400088119 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886AAB1A4F7E2400088119 /* Reachability.m */; };
+		6C886AB01A4FE8B100088119 /* SaratogaHistory2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C886AAE1A4FE8B100088119 /* SaratogaHistory2.jpg */; };
+		6C886AB11A4FE8B100088119 /* SaratogaHistoryImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C886AAF1A4FE8B100088119 /* SaratogaHistoryImage.jpg */; };
+		6C886AB31A4FF74400088119 /* hshacksLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C886AB21A4FF74400088119 /* hshacksLogo.png */; };
 		6CC1EF681A441DC200F6702F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF671A441DC200F6702F /* main.m */; };
 		6CC1EF6B1A441DC200F6702F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF6A1A441DC200F6702F /* AppDelegate.m */; };
-		6CC1EF6E1A441DC200F6702F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF6D1A441DC200F6702F /* ViewController.m */; };
-		6CC1EF711A441DC200F6702F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1EF6F1A441DC200F6702F /* Main.storyboard */; };
 		6CC1EF731A441DC200F6702F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1EF721A441DC200F6702F /* Images.xcassets */; };
-		6CC1EF761A441DC300F6702F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1EF741A441DC300F6702F /* LaunchScreen.xib */; };
 		6CC1EF821A441DC300F6702F /* Saratoga_HistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF811A441DC300F6702F /* Saratoga_HistoryTests.m */; };
+		6CC1EF8D1A44E8B700F6702F /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */; };
+		76B8286C1DAE6CAD167CD72F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EF90C4D47D0D3BA1DFA5BE /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +45,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		53EF90C4D47D0D3BA1DFA5BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		56D67C0F66EB0082D3060C8B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6C300C721A4DE39E0013C2AD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6C300C741A4DE76D0013C2AD /* SHPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlace.h; sourceTree = "<group>"; };
+		6C300C751A4DE76D0013C2AD /* SHPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlace.m; sourceTree = "<group>"; };
+		6C300C771A4DE9EA0013C2AD /* SHPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlaceViewController.h; sourceTree = "<group>"; };
+		6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlaceViewController.m; sourceTree = "<group>"; };
+		6C300C7A1A4DEAE50013C2AD /* SHPlaceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlaceManager.h; sourceTree = "<group>"; };
+		6C300C7B1A4DEAE50013C2AD /* SHPlaceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlaceManager.m; sourceTree = "<group>"; };
+		6C300CA01A4E4DDE0013C2AD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6C300CA21A4E4DF80013C2AD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
+		6C886A981A4EAA6700088119 /* pausebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebutton.png; sourceTree = "<group>"; };
+		6C886A991A4EAA6700088119 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
+		6C886A9A1A4EAA6700088119 /* SCWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWaveformView.h; sourceTree = "<group>"; };
+		6C886A9B1A4EAA6700088119 /* SCWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWaveformView.m; sourceTree = "<group>"; };
+		6C886A9C1A4EAA6700088119 /* SYWaveformPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYWaveformPlayerView.h; sourceTree = "<group>"; };
+		6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWaveformPlayerView.m; sourceTree = "<group>"; };
+		6C886AA31A4F4C4F00088119 /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
+		6C886AA41A4F4C4F00088119 /* EScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EScrollerView.m; sourceTree = "<group>"; };
+		6C886AA61A4F63D200088119 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		6C886AA81A4F7E0D00088119 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C886AAA1A4F7E2400088119 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6C886AAB1A4F7E2400088119 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6C886AAE1A4FE8B100088119 /* SaratogaHistory2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistory2.jpg; sourceTree = "<group>"; };
+		6C886AAF1A4FE8B100088119 /* SaratogaHistoryImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SaratogaHistoryImage.jpg; sourceTree = "<group>"; };
+		6C886AB21A4FF74400088119 /* hshacksLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hshacksLogo.png; sourceTree = "<group>"; };
 		6CC1EF621A441DC200F6702F /* Saratoga History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Saratoga History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC1EF661A441DC200F6702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC1EF671A441DC200F6702F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6CC1EF691A441DC200F6702F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6CC1EF6A1A441DC200F6702F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6CC1EF6C1A441DC200F6702F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6CC1EF6D1A441DC200F6702F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6CC1EF701A441DC200F6702F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CC1EF721A441DC200F6702F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6CC1EF751A441DC300F6702F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6CC1EF7B1A441DC300F6702F /* Saratoga HistoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Saratoga HistoryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CC1EF801A441DC300F6702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CC1EF811A441DC300F6702F /* Saratoga_HistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Saratoga_HistoryTests.m; sourceTree = "<group>"; };
+		6CC1EF8B1A44E8B700F6702F /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
+		6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
+		B392EACA957CADF9CB8678CB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +93,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C886AA91A4F7E0D00088119 /* SystemConfiguration.framework in Frameworks */,
+				6C886AA71A4F63D200088119 /* libsqlite3.dylib in Frameworks */,
+				6C300CA31A4E4DF80013C2AD /* CoreLocation.framework in Frameworks */,
+				6C300CA11A4E4DDE0013C2AD /* QuartzCore.framework in Frameworks */,
+				6C300C731A4DE39E0013C2AD /* MapKit.framework in Frameworks */,
+				76B8286C1DAE6CAD167CD72F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +112,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		112E2732CDBA09818023C6F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C886AAD1A4F7E2600088119 /* Reachability */,
+				6C886AA81A4F7E0D00088119 /* SystemConfiguration.framework */,
+				6C886AA61A4F63D200088119 /* libsqlite3.dylib */,
+				6C886AA21A4F4C4F00088119 /* EScrollerView */,
+				6C886A971A4EAA6700088119 /* SYWaveformPlayer */,
+				6C300CA21A4E4DF80013C2AD /* CoreLocation.framework */,
+				6C300CA01A4E4DDE0013C2AD /* QuartzCore.framework */,
+				53EF90C4D47D0D3BA1DFA5BE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C300C7D1A4DEAF60013C2AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6CC1EF8B1A44E8B700F6702F /* SHBaseViewController.h */,
+				6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */,
+				6C300C771A4DE9EA0013C2AD /* SHPlaceViewController.h */,
+				6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6C300C7E1A4DEB010013C2AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6C300C741A4DE76D0013C2AD /* SHPlace.h */,
+				6C300C751A4DE76D0013C2AD /* SHPlace.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6C300C7F1A4DEB0B0013C2AD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				6C300C7A1A4DEAE50013C2AD /* SHPlaceManager.h */,
+				6C300C7B1A4DEAE50013C2AD /* SHPlaceManager.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		6C886A971A4EAA6700088119 /* SYWaveformPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				6C886A981A4EAA6700088119 /* pausebutton.png */,
+				6C886A991A4EAA6700088119 /* playbutton.png */,
+				6C886A9A1A4EAA6700088119 /* SCWaveformView.h */,
+				6C886A9B1A4EAA6700088119 /* SCWaveformView.m */,
+				6C886A9C1A4EAA6700088119 /* SYWaveformPlayerView.h */,
+				6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */,
+			);
+			path = SYWaveformPlayer;
+			sourceTree = "<group>";
+		};
+		6C886AA21A4F4C4F00088119 /* EScrollerView */ = {
+			isa = PBXGroup;
+			children = (
+				6C886AA31A4F4C4F00088119 /* EScrollerView.h */,
+				6C886AA41A4F4C4F00088119 /* EScrollerView.m */,
+			);
+			path = EScrollerView;
+			sourceTree = "<group>";
+		};
+		6C886AAD1A4F7E2600088119 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				6C886AAA1A4F7E2400088119 /* Reachability.h */,
+				6C886AAB1A4F7E2400088119 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		6CC1EF591A441DC200F6702F = {
 			isa = PBXGroup;
 			children = (
+				6C300C721A4DE39E0013C2AD /* MapKit.framework */,
 				6CC1EF641A441DC200F6702F /* Saratoga History */,
 				6CC1EF7E1A441DC300F6702F /* Saratoga HistoryTests */,
 				6CC1EF631A441DC200F6702F /* Products */,
+				B693A8787469B7CBBDD4610E /* Pods */,
+				112E2732CDBA09818023C6F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +211,16 @@
 		6CC1EF641A441DC200F6702F /* Saratoga History */ = {
 			isa = PBXGroup;
 			children = (
+				6C886AAE1A4FE8B100088119 /* SaratogaHistory2.jpg */,
+				6C886AAF1A4FE8B100088119 /* SaratogaHistoryImage.jpg */,
+				6C886AB21A4FF74400088119 /* hshacksLogo.png */,
+				6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */,
 				6CC1EF691A441DC200F6702F /* AppDelegate.h */,
 				6CC1EF6A1A441DC200F6702F /* AppDelegate.m */,
-				6CC1EF6C1A441DC200F6702F /* ViewController.h */,
-				6CC1EF6D1A441DC200F6702F /* ViewController.m */,
 				6CC1EF6F1A441DC200F6702F /* Main.storyboard */,
+				6C300C7D1A4DEAF60013C2AD /* Controllers */,
+				6C300C7E1A4DEB010013C2AD /* Models */,
+				6C300C7F1A4DEB0B0013C2AD /* Helpers */,
 				6CC1EF721A441DC200F6702F /* Images.xcassets */,
 				6CC1EF741A441DC300F6702F /* LaunchScreen.xib */,
 				6CC1EF651A441DC200F6702F /* Supporting Files */,
@@ -119,6 +254,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B693A8787469B7CBBDD4610E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B392EACA957CADF9CB8678CB /* Pods.debug.xcconfig */,
+				56D67C0F66EB0082D3060C8B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +270,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CC1EF851A441DC300F6702F /* Build configuration list for PBXNativeTarget "Saratoga History" */;
 			buildPhases = (
+				9012E63415AA8F10D205296F /* Check Pods Manifest.lock */,
 				6CC1EF5E1A441DC200F6702F /* Sources */,
 				6CC1EF5F1A441DC200F6702F /* Frameworks */,
 				6CC1EF601A441DC200F6702F /* Resources */,
+				20530331D729DE91DBA22FCF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,9 +345,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC1EF711A441DC200F6702F /* Main.storyboard in Resources */,
-				6CC1EF761A441DC300F6702F /* LaunchScreen.xib in Resources */,
+				6C886AB31A4FF74400088119 /* hshacksLogo.png in Resources */,
+				6C300CA41A4E64A80013C2AD /* Main.storyboard in Resources */,
+				6C886AB01A4FE8B100088119 /* SaratogaHistory2.jpg in Resources */,
+				6C886A9E1A4EAA6700088119 /* pausebutton.png in Resources */,
+				6C886AB11A4FE8B100088119 /* SaratogaHistoryImage.jpg in Resources */,
+				6C886A9F1A4EAA6700088119 /* playbutton.png in Resources */,
 				6CC1EF731A441DC200F6702F /* Images.xcassets in Resources */,
+				6C886A961A4EA65700088119 /* I Need A Dollar.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,14 +365,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20530331D729DE91DBA22FCF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9012E63415AA8F10D205296F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6CC1EF5E1A441DC200F6702F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CC1EF6E1A441DC200F6702F /* ViewController.m in Sources */,
+				6C300C7C1A4DEAE50013C2AD /* SHPlaceManager.m in Sources */,
+				6C886AA01A4EAA6700088119 /* SCWaveformView.m in Sources */,
+				6C886AA51A4F4C4F00088119 /* EScrollerView.m in Sources */,
 				6CC1EF6B1A441DC200F6702F /* AppDelegate.m in Sources */,
+				6C886AAC1A4F7E2400088119 /* Reachability.m in Sources */,
+				6CC1EF8D1A44E8B700F6702F /* SHBaseViewController.m in Sources */,
+				6C886AA11A4EAA6700088119 /* SYWaveformPlayerView.m in Sources */,
+				6C300C761A4DE76D0013C2AD /* SHPlace.m in Sources */,
 				6CC1EF681A441DC200F6702F /* main.m in Sources */,
+				6C300C791A4DE9EA0013C2AD /* SHPlaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +477,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -326,6 +519,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -341,9 +536,11 @@
 		};
 		6CC1EF861A441DC300F6702F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B392EACA957CADF9CB8678CB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Saratoga History/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -351,9 +548,11 @@
 		};
 		6CC1EF871A441DC300F6702F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56D67C0F66EB0082D3060C8B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Saratoga History/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -412,6 +611,7 @@
 				6CC1EF871A441DC300F6702F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6CC1EF881A441DC300F6702F /* Build configuration list for PBXNativeTarget "Saratoga HistoryTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +620,7 @@
 				6CC1EF8A1A441DC300F6702F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
