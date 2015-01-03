@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <JPSThumbnailAnnotation.h>
-#import "SYWaveformPlayerView.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface SHPlace : NSObject
 

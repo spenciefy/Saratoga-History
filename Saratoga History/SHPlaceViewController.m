@@ -49,7 +49,6 @@
     self.audioVC.view.titleLabel.textColor = [UIColor colorWithWhite:102/255. alpha:1];
     [self.audioVC playAudioWithURL:self.place.audioURLAsset.URL];
 
-    
     scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - audioPlayer.frame.origin.y + audioPlayer.frame.size.height)];
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = NO;

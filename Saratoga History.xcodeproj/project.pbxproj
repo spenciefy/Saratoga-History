@@ -17,8 +17,6 @@
 		6C886A961A4EA65700088119 /* I Need A Dollar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */; };
 		6C886A9E1A4EAA6700088119 /* pausebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A981A4EAA6700088119 /* pausebutton.png */; };
 		6C886A9F1A4EAA6700088119 /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C886A991A4EAA6700088119 /* playbutton.png */; };
-		6C886AA01A4EAA6700088119 /* SCWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886A9B1A4EAA6700088119 /* SCWaveformView.m */; };
-		6C886AA11A4EAA6700088119 /* SYWaveformPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */; };
 		6C886AA51A4F4C4F00088119 /* EScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C886AA41A4F4C4F00088119 /* EScrollerView.m */; };
 		6C886AA71A4F63D200088119 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C886AA61A4F63D200088119 /* libsqlite3.dylib */; };
 		6C886AA91A4F7E0D00088119 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C886AA81A4F7E0D00088119 /* SystemConfiguration.framework */; };
@@ -60,10 +58,6 @@
 		6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "I Need A Dollar.mp3"; sourceTree = "<group>"; };
 		6C886A981A4EAA6700088119 /* pausebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pausebutton.png; path = ../SYWaveformPlayer/pausebutton.png; sourceTree = "<group>"; };
 		6C886A991A4EAA6700088119 /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playbutton.png; path = ../SYWaveformPlayer/playbutton.png; sourceTree = "<group>"; };
-		6C886A9A1A4EAA6700088119 /* SCWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCWaveformView.h; sourceTree = "<group>"; };
-		6C886A9B1A4EAA6700088119 /* SCWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCWaveformView.m; sourceTree = "<group>"; };
-		6C886A9C1A4EAA6700088119 /* SYWaveformPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYWaveformPlayerView.h; sourceTree = "<group>"; };
-		6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYWaveformPlayerView.m; sourceTree = "<group>"; };
 		6C886AA31A4F4C4F00088119 /* EScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EScrollerView.h; sourceTree = "<group>"; };
 		6C886AA41A4F4C4F00088119 /* EScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EScrollerView.m; sourceTree = "<group>"; };
 		6C886AA61A4F63D200088119 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -123,7 +117,6 @@
 				6C886AA81A4F7E0D00088119 /* SystemConfiguration.framework */,
 				6C886AA61A4F63D200088119 /* libsqlite3.dylib */,
 				6C886AA21A4F4C4F00088119 /* EScrollerView */,
-				6C886A971A4EAA6700088119 /* SYWaveformPlayer */,
 				6C300CA21A4E4DF80013C2AD /* CoreLocation.framework */,
 				6C300CA01A4E4DDE0013C2AD /* QuartzCore.framework */,
 				53EF90C4D47D0D3BA1DFA5BE /* libPods.a */,
@@ -138,8 +131,6 @@
 				6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */,
 				6C300C771A4DE9EA0013C2AD /* SHPlaceViewController.h */,
 				6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */,
-				6CE871C61A57AD6300C919EB /* SYAudioPlayerView.h */,
-				6CE871C71A57AD6300C919EB /* SYAudioPlayerView.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -162,17 +153,6 @@
 				6C300C7B1A4DEAE50013C2AD /* SHPlaceManager.m */,
 			);
 			name = Helpers;
-			sourceTree = "<group>";
-		};
-		6C886A971A4EAA6700088119 /* SYWaveformPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				6C886A9A1A4EAA6700088119 /* SCWaveformView.h */,
-				6C886A9B1A4EAA6700088119 /* SCWaveformView.m */,
-				6C886A9C1A4EAA6700088119 /* SYWaveformPlayerView.h */,
-				6C886A9D1A4EAA6700088119 /* SYWaveformPlayerView.m */,
-			);
-			path = SYWaveformPlayer;
 			sourceTree = "<group>";
 		};
 		6C886AA21A4F4C4F00088119 /* EScrollerView */ = {
@@ -226,6 +206,7 @@
 				6CC1EF6A1A441DC200F6702F /* AppDelegate.m */,
 				6CC1EF6F1A441DC200F6702F /* Main.storyboard */,
 				6C300C7D1A4DEAF60013C2AD /* Controllers */,
+				6CE871CC1A57C1B900C919EB /* Views */,
 				6C300C7E1A4DEB010013C2AD /* Models */,
 				6C300C7F1A4DEB0B0013C2AD /* Helpers */,
 				6CC1EF721A441DC200F6702F /* Images.xcassets */,
@@ -259,6 +240,15 @@
 				6CC1EF801A441DC300F6702F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6CE871CC1A57C1B900C919EB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6CE871C61A57AD6300C919EB /* SYAudioPlayerView.h */,
+				6CE871C71A57AD6300C919EB /* SYAudioPlayerView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		B693A8787469B7CBBDD4610E /* Pods */ = {
@@ -411,13 +401,11 @@
 			files = (
 				6C300C7C1A4DEAE50013C2AD /* SHPlaceManager.m in Sources */,
 				6CE871CB1A57AF2700C919EB /* UIView+AutoLayout.m in Sources */,
-				6C886AA01A4EAA6700088119 /* SCWaveformView.m in Sources */,
 				6C886AA51A4F4C4F00088119 /* EScrollerView.m in Sources */,
 				6CC1EF6B1A441DC200F6702F /* AppDelegate.m in Sources */,
 				6C886AAC1A4F7E2400088119 /* Reachability.m in Sources */,
 				6CE871C81A57AD6300C919EB /* SYAudioPlayerView.m in Sources */,
 				6CC1EF8D1A44E8B700F6702F /* SHBaseViewController.m in Sources */,
-				6C886AA11A4EAA6700088119 /* SYWaveformPlayerView.m in Sources */,
 				6C300C761A4DE76D0013C2AD /* SHPlace.m in Sources */,
 				6CC1EF681A441DC200F6702F /* main.m in Sources */,
 				6C300C791A4DE9EA0013C2AD /* SHPlaceViewController.m in Sources */,
