@@ -187,8 +187,6 @@
     tapGesture.delegate = self;
     UIView *temp = (UIView *)[sender view];
     [temp addGestureRecognizer: tapGesture];
-
-    
 }
 
 - (void)flipToPage:(int)index {
