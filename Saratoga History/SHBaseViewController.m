@@ -105,12 +105,15 @@
         self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
     
-    UISwipeGestureRecognizer *pageSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shrinkCurrentPage)];
-    UISwipeGestureRecognizer *pageSwipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage)];
+    UISwipeGestureRecognizer *pageSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shrinkCurrentPage:)];
+    UISwipeGestureRecognizer *pageSwipeUp = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
+    tapGesture.delegate = self;
     pageSwipeUp.direction = UISwipeGestureRecognizerDirectionUp;
     pageSwipeDown.direction = UISwipeGestureRecognizerDirectionDown;
     [self.pageViewController.view addGestureRecognizer:pageSwipeDown];
     [self.pageViewController.view addGestureRecognizer:pageSwipeUp];
+    [self.pageViewController.view addGestureRecognizer:tapGesture];
 }
 
 - (void)setupMapView {
@@ -152,16 +155,31 @@
     return nil;
 }
 
-- (void)expandCurrentPage {
+- (void)expandCurrentPage: (id)sender {
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
-- (void)shrinkCurrentPage {
+-(void)tapExpandCurrentPage: (id)sender {
+    [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+    } completion:nil];
+    
+    UIView *temp = (UIView *)[sender view];
+    [temp removeGestureRecognizer: sender];
+}
+
+- (void)shrinkCurrentPage: (id)sender {
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.7, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
+    tapGesture.delegate = self;
+    UIView *temp = (UIView *)[sender view];
+    [temp addGestureRecognizer: tapGesture];
+
+    
 }
 
 - (void)flipToPage:(int)index {
