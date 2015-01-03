@@ -31,21 +31,23 @@
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
+            [object pinInBackground];
             float lat = [object[@"Latitude"] floatValue];
             float lng = [object[@"Longitude"] floatValue];
             int index = [object[@"Index"] intValue];
             
             PFFile *imagesFile =  (PFFile *)object[@"Images"];
             NSArray *images = [NSKeyedUnarchiver unarchiveObjectWithData:[imagesFile getData]];
-            PFFile *audioFile  = (PFFile *)object[@"audio"];
-            SHPlace *place = [[SHPlace alloc]initWithIndex:index title:object[@"Title"] lat:lat lng:lng address:object[@"Address"] descriptionText:object[@"Description"] images:images imageCaptions:object[@"ImageCaptions"] audio:[audioFile getData]];
+
+            AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:object[@"audioFileName"] withExtension:@"mp3"] options:nil];
+            SHPlace *place = [[SHPlace alloc]initWithIndex:index title:object[@"Title"] lat:lat lng:lng address:object[@"Address"] descriptionText:object[@"Description"] images:images imageCaptions:object[@"ImageCaptions"] audio:asset];
             [places addObject:place];
-                
+        
             if(places.count == objects.count) {
-                completionBlock([places mutableCopy], nil);
+                NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES]];
+                NSArray *sortedArray = [places sortedArrayUsingDescriptors:sortDescriptors];
+                completionBlock(sortedArray, nil);
             }
-          //  [object pinInBackground];
-            
         }
     }];
 }
@@ -71,8 +73,11 @@
     if(myStatus == NotReachable) {
         return NO;
     } else{
-        return YES;
+        if(myStatus == ReachableViaWiFi) {
+            return YES;
+        }
     }
+    return NO;
 }
 
 

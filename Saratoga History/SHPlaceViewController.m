@@ -23,23 +23,34 @@
     [super viewDidLoad];
     self.view.layer.cornerRadius = 12;
     self.view.layer.masksToBounds = YES;
-
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width, 40)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(pause)
+                                                 name:@"PageViewChange"
+                                               object:nil];
+    
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
     titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
+    titleLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
     titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.text = self.place.placeTitle;
     [self.view addSubview:titleLabel];
     
-    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"I Need A Dollar" withExtension:@"mp3"] options:nil];
-    self.playerView = [[SYWaveformPlayerView alloc] initWithFrame:CGRectMake(3,41,self.view.frame.size.width - 10, 45) asset:asset color:[UIColor lightGrayColor] progressColor:[UIColor colorWithRed:1 green:0.2 blue:0.2 alpha:1]];
-    [self.view addSubview:self.playerView];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"I Need A Dollar" ofType:@"mp3"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+    SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:fileURL autoplay:NO];
+    audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
+    [self.view addSubview:audioPlayer];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                        selector:@selector(pause)
-                                        name:@"PageViewChange"
-                                        object:nil];
+    self.audioVC.view.progressView.foregroundColor = [UIColor colorWithRed:88/255. green:199/255. blue:226/255. alpha:1];
+    self.audioVC.view.progressView.backgroundColor = [UIColor colorWithWhite:207/255. alpha:1];
+    self.audioVC.view.backgroundColor = [UIColor colorWithWhite:238/255. alpha:1];
+    self.audioVC.view.playbackTimeLabel.textColor = [UIColor colorWithWhite:102/255. alpha:1];
+    self.audioVC.view.titleLabel.textColor = [UIColor colorWithWhite:102/255. alpha:1];
+    [self.audioVC playAudioWithURL:self.place.audioURLAsset.URL];
+
     
-    scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, self.playerView.frame.origin.y + self.playerView.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.playerView.frame.origin.y + self.playerView.frame.size.height)];
+    scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - audioPlayer.frame.origin.y + audioPlayer.frame.size.height)];
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.scrollEnabled = YES;
@@ -78,7 +89,7 @@
 }
 
 - (void)pause {
-    [self.playerView pause];
+    [self.playerView stopAudio:self];
 }
 
 - (IBAction)expand:(id)sender {

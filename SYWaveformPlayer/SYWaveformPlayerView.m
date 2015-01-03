@@ -44,7 +44,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    playPauseButton.frame = CGRectMake(5, self.frame.size.height/2 - self.frame.size.height/4 , self.frame.size.height/2, self.frame.size.height/2);
+    playPauseButton.frame = CGRectMake(5, self.frame.size.height/2 - self.frame.size.height/4 , self.frame.size.height/1.8, self.frame.size.height/1.8);
     playPauseButton.layer.cornerRadius = self.frame.size.height/4;
     
     waveformView.frame = CGRectMake(self.frame.size.height/2 + 10, 0, self.frame.size.width - (self.frame.size.height/2 + 10), self.frame.size.height);
