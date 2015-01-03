@@ -140,7 +140,7 @@ void SCRenderPixelWaveformInContext(CGContextRef context, float halfGraphHeight,
     unsigned long int totalSamples = (unsigned long int)asset.duration.value;
     NSUInteger samplesPerPixel = totalSamples / (widthInPixels);
     samplesPerPixel = samplesPerPixel < 1 ? 1 : samplesPerPixel;
-    [reader startReading];
+   // [reader startReading];
     
     float halfGraphHeight = (heightInPixels / 2);
     double bigSample = 0;

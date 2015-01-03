@@ -1,0 +1,1 @@
+../../../loudspeaker/Pod/Classes/LSPKit.h

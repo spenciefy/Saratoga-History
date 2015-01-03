@@ -137,15 +137,6 @@
 }
 
 - (NSArray *)annotations {
-//    
-//    // Apple HQ
-//    JPSThumbnail *apple = [[JPSThumbnail alloc] init];
-//    apple.image = [UIImage imageNamed:@"apple.jpg"];
-//    apple.title = @"Apple HQ";
-//    apple.subtitle = @"Apple Headquarters";
-//    apple.coordinate = CLLocationCoordinate2DMake(37.33f, -122.03f);
-//    apple.expandBlock = ^{ NSLog(@"selected Appple");
-//    };
     NSMutableArray *annotations = [[NSMutableArray alloc] init];
     for(SHPlace *place in places) {
         int index = place.index;
@@ -250,21 +241,13 @@
        transitionCompleted:(BOOL)completed {
     
     if(completed) {
-        [currentPlaceVC.playerView pause];
+        [currentPlaceVC pause];
         currentPlaceVC = [pageViewController.viewControllers lastObject];
     }
 }
 
 -(void)enableUserInteraction{
     [self.view setUserInteractionEnabled:YES];
-}
-
--(void)panPageView:(UIPanGestureRecognizer *)pan{
-    CGPoint translation = [pan translationInView:self.view];
-    CGPoint point = [pan locationInView:self.view];
-    
-    NSLog(@"translation: %f", translation.y);
-    self.pageViewController.view.frame = CGRectMake(0, point.y, self.pageViewController.view.frame.size.width, self.pageViewController.view.frame.size.height);
 }
 
 - (IBAction)resetMapRegion:(id)sender {

@@ -46,10 +46,9 @@
         }
         [scrollView setContentOffset:CGPointMake(viewSize.size.width, 0)];
         [self addSubview:scrollView];
-
         
-                UIView *noteView=[[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-33,self.bounds.size.width,33)];
-        [noteView setBackgroundColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.5]];
+        UIView *noteView=[[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height-33,self.bounds.size.width,33)];
+        [noteView setBackgroundColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.8]];
         
         float pageControlWidth=(pageCount-2)*10.0f+40.f;
         float pagecontrolHeight=20.0f;
@@ -61,17 +60,14 @@
         noteTitle=[[UILabel alloc] initWithFrame:CGRectMake(5, 6, self.frame.size.width-pageControlWidth-15, 20)];
         [noteTitle setText:[titleArray objectAtIndex:0]];
         [noteTitle setBackgroundColor:[UIColor clearColor]];
-        [noteTitle setFont:[UIFont systemFontOfSize:13]];
+        [noteTitle setFont:[UIFont fontWithName:@"AvenirNext-Regular" size:14]];
+        noteTitle.textColor=  [UIColor whiteColor];
         [noteView addSubview:noteTitle];
         
         [self addSubview:noteView];
 	}
 	return self;
 }
-
-
-
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender
 {

@@ -20,14 +20,11 @@
 @property (nonatomic, strong) NSString *descriptionText;
 @property (nonatomic, strong) NSArray *images;
 @property (nonatomic, strong) NSArray *imageCaptions;
-@property (nonatomic, strong) NSData *audio;
 @property (nonatomic, strong) JPSThumbnail *annotationThumbnail;
 @property (nonatomic, strong) AVURLAsset *audioURLAsset;
 
--(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs imageCaptions:(NSArray *)captions audio:(NSData *)audioData;
+-(id)initWithIndex:(int)indx title:(NSString *)title lat:(float)latitude lng:(float)longitude address:(NSString *)addres descriptionText:(NSString *)text images:(NSArray *)imgs imageCaptions:(NSArray *)captions audio:(AVURLAsset *)audioAsset;
 
-@property (nonatomic, strong) NSString *documentsDirectory;
-@property (nonatomic, strong) NSString *databaseFilename;
 
 @end
 
