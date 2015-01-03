@@ -12,7 +12,7 @@
 #import <MapKit/MapKit.h>
 #import "SHPlaceManager.h"
 
-@interface SHBaseViewController : UIViewController <MKMapViewDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate,CLLocationManagerDelegate>
+@interface SHBaseViewController : UIViewController <MKMapViewDelegate,UIPageViewControllerDataSource,UIPageViewControllerDelegate,CLLocationManagerDelegate, UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
