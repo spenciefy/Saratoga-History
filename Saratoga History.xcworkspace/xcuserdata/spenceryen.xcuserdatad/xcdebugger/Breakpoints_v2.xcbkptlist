@@ -19,14 +19,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Saratoga History/SHBaseViewController.h"
-            timestampString = "441452323.063719"
+            filePath = "Saratoga History/SHPlace.m"
+            timestampString = "441967959.679071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "@interface SHBaseViewController"
-            landmarkType = "2">
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "-initWithIndex:title:lat:lng:address:descriptionText:images:imageCaptions:audio:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

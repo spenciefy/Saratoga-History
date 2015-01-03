@@ -31,7 +31,8 @@
     [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
         placeViewControllers = [placeVCs mutableCopy];
         [self setupPageView];
-        [self.mapView addAnnotations:[self annotations]];
+        NSArray *annotations = [self annotations];
+        [self.mapView addAnnotations:annotations];
     }];
 //    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
 //    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
@@ -67,6 +68,7 @@
             SHPlaceViewController *placeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPlaceViewController"];
             placeViewController.place = places[i];
             placeViewController.pageIndex = i;
+            placeViewController.delegate = self;
             
             [placeVCs addObject:placeViewController];
             
@@ -175,7 +177,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.7, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
     tapGesture.delegate = self;
@@ -187,8 +189,12 @@
     NSArray *viewControllers  = [NSArray arrayWithObjects:placeViewControllers[index], nil];
     
     if(index > [placeViewControllers indexOfObject:currentPlaceVC]) {
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
     } else {
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:NULL];
     }
 }
@@ -262,6 +268,14 @@
     if(completed) {
         [currentPlaceVC pause];
         currentPlaceVC = [pageViewController.viewControllers lastObject];
+    }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView placeView:(SHPlaceViewController *)placeVC{
+    if((scrollView.contentOffset.y < -30) && placeVC.expanded) {
+        [self shrinkCurrentPage:self];
+    } else if ((scrollView.contentOffset.y > 100) && !placeVC.expanded) {
+        [self expandCurrentPage:self];
     }
 }
 
