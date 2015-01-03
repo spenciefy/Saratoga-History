@@ -9,15 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SHPlace.h"
 #import "SYAudioPlayerView.h"
-#import <LSPAudioViewController.h>
 
-@interface SHPlaceViewController : UIViewController <LSPAudioViewControllerDelegate>
+@interface SHPlaceViewController : UIViewController
 
 @property (strong, nonatomic) SHPlace *place;
 @property (nonatomic, assign) int pageIndex;
 
 @property (strong, nonatomic) SYAudioPlayerView *playerView;
-@property (nonatomic, strong) LSPAudioViewController *audioVC;
 
 - (IBAction)expand:(id)sender;
 - (void)pause;
