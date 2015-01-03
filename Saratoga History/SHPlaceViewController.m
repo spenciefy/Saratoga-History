@@ -21,6 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.expanded = NO;
     self.view.layer.cornerRadius = 12;
     self.view.layer.masksToBounds = YES;
     
@@ -40,11 +41,12 @@
     audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
     [self.view addSubview:audioPlayer];
     
-    scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - audioPlayer.frame.origin.y + audioPlayer.frame.size.height)];
+    scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
     scrollView.showsVerticalScrollIndicator = YES;
     scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.scrollEnabled = YES;
+    scrollView.scrollEnabled = NO;
     scrollView.userInteractionEnabled = YES;
+    scrollView.delegate = self;
     [self.view addSubview:scrollView];
     
     EScrollerView *imageScroller = [[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 0, self.view.frame.size.width, 170) ImageArray: self.place.images TitleArray: self.place.imageCaptions];
@@ -83,6 +85,21 @@
     [self.playerView stopAudio:self];
 }
 
-- (IBAction)expand:(id)sender {
+- (void)setExpanded:(BOOL)expanded {
+    //self.expanded = expanded;
+    if(expanded) {
+        scrollView.scrollEnabled = YES;
+    } else {
+        scrollView.scrollEnabled = YES;
+    }
+}
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(scrollView.contentOffset.y < -10) {
+        NSLog(@"drop view");
+    } else if (scrollView.contentOffset.y > 50) {
+        NSLog(@"expand view");
+
+    }
 }
 @end

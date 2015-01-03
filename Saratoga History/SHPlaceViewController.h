@@ -10,10 +10,11 @@
 #import "SHPlace.h"
 #import "SYAudioPlayerView.h"
 
-@interface SHPlaceViewController : UIViewController
+@interface SHPlaceViewController : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) SHPlace *place;
 @property (nonatomic, assign) int pageIndex;
+@property (nonatomic, assign) BOOL expanded;
 
 @property (strong, nonatomic) SYAudioPlayerView *playerView;
 

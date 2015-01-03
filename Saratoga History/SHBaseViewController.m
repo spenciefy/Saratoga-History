@@ -156,12 +156,14 @@
 }
 
 - (void)expandCurrentPage: (id)sender {
+    currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
+    currentPlaceVC.expanded = YES;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
@@ -171,6 +173,7 @@
 }
 
 - (void)shrinkCurrentPage: (id)sender {
+    currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.7, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
