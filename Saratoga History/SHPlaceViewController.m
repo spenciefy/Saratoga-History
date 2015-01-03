@@ -54,7 +54,7 @@
     self.audioVC.view.titleLabel.textColor = [UIColor colorWithWhite:102/255. alpha:1];
     [self.audioVC playAudioWithURL:self.place.audioURLAsset.URL];
     
-    EScrollerView *imageScroller = [[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 75, self.view.frame.size.width, 200)
+    EScrollerView *imageScroller = [[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 75, self.view.frame.size.width, 170)
                                                                  ImageArray:self.place.images
                                                                  TitleArray:self.place.imageCaptions];
     imageScroller.delegate = self;

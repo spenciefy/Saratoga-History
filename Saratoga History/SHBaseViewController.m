@@ -157,13 +157,13 @@
 
 - (void)expandCurrentPage: (id)sender {
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
 }
 
 -(void)tapExpandCurrentPage: (id)sender {
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
+        self.pageViewController.view.frame = CGRectMake(0, 63, self.view.frame.size.width, self.pageViewController.view.frame.size.height);
     } completion:nil];
     
     UIView *temp = (UIView *)[sender view];
