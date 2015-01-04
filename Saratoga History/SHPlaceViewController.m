@@ -14,11 +14,10 @@
 @end
 
 @implementation SHPlaceViewController {
-    UIScrollView *scrollView;
-    UILabel *titleLabel;
-    UITextView *textView;
+    UIScrollView *_scrollView;
+    UILabel *_titleLabel;
+    UITextView *_textView;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.expanded = NO;
@@ -30,39 +29,40 @@
                                                  name:@"PageViewChange"
                                                object:nil];
     
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
-    titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
-    titleLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
-    titleLabel.textAlignment = NSTextAlignmentLeft;
-    titleLabel.text = self.place.placeTitle;
-    [self.view addSubview:titleLabel];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 15, 40)];
+    _titleLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:22.0f];
+    _titleLabel.center = CGPointMake(self.view.frame.size.width/2, 25);
+    _titleLabel.textAlignment = NSTextAlignmentLeft;
+    _titleLabel.text = self.place.placeTitle;
+    [self.view addSubview:_titleLabel];
     
     SYAudioPlayerView *audioPlayer = [[SYAudioPlayerView alloc] initWithFrame:CGRectMake(0,0,self.view.frame.size.width - 10, 45) audioFileURL:self.place.audioURLAsset.URL autoplay:NO];
     audioPlayer.center = CGPointMake(self.view.frame.size.width/2, 48);
     [self.view addSubview:audioPlayer];
     
-    scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
-    scrollView.showsVerticalScrollIndicator = YES;
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.scrollEnabled = NO;
-    scrollView.userInteractionEnabled = YES;
-    scrollView.delegate = self;
-    [self.view addSubview:scrollView];
+    _scrollView = [[UIScrollView alloc] initWithFrame: CGRectMake(0, audioPlayer.frame.origin.y + audioPlayer.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - 130)];
+    _scrollView.showsVerticalScrollIndicator = YES;
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.scrollEnabled = YES;
+    _scrollView.userInteractionEnabled = YES;
+    _scrollView.delegate = self;
+    [self.view addSubview:_scrollView];
     
     EScrollerView *imageScroller = [[EScrollerView alloc] initWithFrameRect:CGRectMake(0, 0, self.view.frame.size.width, 170) ImageArray: self.place.images TitleArray: self.place.imageCaptions];
     imageScroller.delegate = self;
-    [scrollView addSubview:imageScroller];
+    [_scrollView addSubview:imageScroller];
     
-    textView = [[UITextView alloc] initWithFrame: self.view.frame];
-    textView.frame = CGRectMake(textView.frame.origin.x, imageScroller.frame.origin.y + imageScroller.frame.size.height + 10, textView.frame.size.width, textView.frame.size.height);
-    [textView setScrollEnabled:NO];
-    textView.text = self.place.descriptionText;
-    textView.backgroundColor = [UIColor blueColor];
-    [scrollView addSubview: textView];
-    NSLog(@"%f", textView.frame.size.height + textView.frame.origin.y);
+    _textView = [[UITextView alloc] initWithFrame: self.view.frame];
+    NSAttributedString *text = [[NSAttributedString alloc] initWithString:self.place.descriptionText attributes:@{NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Regular" size:17]}];
+    _textView.frame = CGRectMake(8, imageScroller.frame.origin.y + imageScroller.frame.size.height + 10, self.view.frame.size.width - 16, [self textViewHeightForAttributedText:text andWidth:self.view.frame.size.width-16]);
+    _textView.scrollEnabled = NO;
+    _textView.editable = NO;
+    _textView.text = self.place.descriptionText;
+    _textView.font = [UIFont fontWithName:@"AvenirNext-Regular" size:17];
+    _textView.backgroundColor = [UIColor whiteColor];
+    [_scrollView addSubview: _textView];
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, textView.frame.origin.y + textView.frame.size.height);
-    NSLog(@"%f", scrollView.frame.size.height);
+    _scrollView.contentSize = CGSizeMake(_scrollView.frame.size.width, _textView.frame.origin.y + _textView.frame.size.height);
 }
 
 - (void)dealloc {
@@ -85,21 +85,15 @@
     [self.playerView stopAudio:self];
 }
 
-- (void)setExpanded:(BOOL)expanded {
-    //self.expanded = expanded;
-    if(expanded) {
-        scrollView.scrollEnabled = YES;
-    } else {
-        scrollView.scrollEnabled = YES;
-    }
-}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if(scrollView.contentOffset.y < -10) {
-        NSLog(@"drop view");
-    } else if (scrollView.contentOffset.y > 50) {
-        NSLog(@"expand view");
-
+    if ([_delegate respondsToSelector:@selector(scrollViewDidScroll:placeView:)]) {
+        [_delegate scrollViewDidScroll:scrollView placeView:self];
     }
 }
+-(CGSize) getContentSize:(UITextView*) myTextView{
+    return [myTextView sizeThatFits:CGSizeMake(myTextView.frame.size.width, FLT_MAX)];
+}
+
+
 @end

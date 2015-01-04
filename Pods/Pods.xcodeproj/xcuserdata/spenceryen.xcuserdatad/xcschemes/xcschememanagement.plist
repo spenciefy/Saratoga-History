@@ -19,17 +19,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Parse.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-loudspeaker.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -39,50 +29,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>loudspeaker.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>017B564F24875183B46BEB89</key>
+		<key>1DFD23B2093D4751D4EA8A61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1E64E717AD2889D58288CCFD</key>
+		<key>693A26770C6E21ECFC370800</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>35E3A541D42EC7A04F7CD210</key>
+		<key>85B61B2CE478BF8D59E8673B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>91DB9CCCB4E9842673CDE444</key>
+		<key>B10820A424B14E34E8BCB8D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97C21184E7C284B585AB241A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C1AFF1A4103031E9E06A28D5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CE9D47ACA35CFD3E83AAF405</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DFC65F2AC2EF91F14046BD30</key>
+		<key>D45926391A07366BDC5E384C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

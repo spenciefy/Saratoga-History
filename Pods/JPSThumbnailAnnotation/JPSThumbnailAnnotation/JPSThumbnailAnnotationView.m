@@ -103,6 +103,14 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     [self.layer insertSublayer:_bgLayer atIndex:0];
 }
 
+- (void)selectAnnotationViewInMap:(MKMapView *)mapview {
+    [mapview selectAnnotation:self.annotation animated:YES];
+    [self didSelectAnnotationViewInMap:mapview];
+}
+- (void)deselectAnnotationViewInMap:(MKMapView *)mapview {
+    [mapview deselectAnnotation:self.annotation animated:YES];
+    [self didDeselectAnnotationViewInMap:mapview];
+}
 #pragma mark - Updating
 
 - (void)updateWithThumbnail:(JPSThumbnail *)thumbnail {
@@ -112,18 +120,31 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
     self.imageView.image = thumbnail.image;
     self.expandBlock = thumbnail.expandBlock;
     self.shrinkBlock = thumbnail.shrinkBlock;
-    
 }
 
 #pragma mark - JPSThumbnailAnnotationViewProtocol
 
 - (void)didSelectAnnotationViewInMap:(MKMapView *)mapView {
-    // Center map at annotation point
+    [self setLocation:self.coordinate inBottomCenterOfMapView:mapView];
     [self expand];
 }
 
 - (void)didDeselectAnnotationViewInMap:(MKMapView *)mapView {
     [self shrink];
+}
+
+- (void)setLocation:(CLLocationCoordinate2D)location inBottomCenterOfMapView:(MKMapView*)mapView
+{
+    //Get the region (with the location centered) and the center point of that region
+    MKCoordinateRegion oldRegion = [mapView regionThatFits:MKCoordinateRegionMakeWithDistance(location, 400, 400)];
+    CLLocationCoordinate2D centerPointOfOldRegion = oldRegion.center;
+    
+    //Create a new center point (I added a quarter of oldRegion's latitudinal span)
+    CLLocationCoordinate2D centerPointOfNewRegion = CLLocationCoordinate2DMake(centerPointOfOldRegion.latitude - oldRegion.span.latitudeDelta/5.4, centerPointOfOldRegion.longitude);
+    
+    //Create a new region with the new center point (same span as oldRegion)
+    MKCoordinateRegion newRegion = MKCoordinateRegionMake(centerPointOfNewRegion, oldRegion.span);
+    [mapView setRegion:newRegion animated:YES];
 }
 
 #pragma mark - Geometry

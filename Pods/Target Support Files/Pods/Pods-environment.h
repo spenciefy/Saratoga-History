@@ -24,21 +24,9 @@
 #define COCOAPODS_VERSION_MINOR_JPSThumbnailAnnotation 0
 #define COCOAPODS_VERSION_PATCH_JPSThumbnailAnnotation 0
 
-// Masonry
-#define COCOAPODS_POD_AVAILABLE_Masonry
-#define COCOAPODS_VERSION_MAJOR_Masonry 0
-#define COCOAPODS_VERSION_MINOR_Masonry 5
-#define COCOAPODS_VERSION_PATCH_Masonry 3
-
 // Parse
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1
 #define COCOAPODS_VERSION_MINOR_Parse 6
 #define COCOAPODS_VERSION_PATCH_Parse 1
-
-// loudspeaker
-#define COCOAPODS_POD_AVAILABLE_loudspeaker
-#define COCOAPODS_VERSION_MAJOR_loudspeaker 0
-#define COCOAPODS_VERSION_MINOR_loudspeaker 1
-#define COCOAPODS_VERSION_PATCH_loudspeaker 1
 

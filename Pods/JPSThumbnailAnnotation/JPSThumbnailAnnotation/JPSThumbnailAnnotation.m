@@ -10,9 +10,6 @@
 
 @interface JPSThumbnailAnnotation ()
 
-@property (nonatomic, readwrite) JPSThumbnailAnnotationView *view;
-@property (nonatomic, readonly) JPSThumbnail *thumbnail;
-
 @end
 
 @implementation JPSThumbnailAnnotation
@@ -51,6 +48,13 @@
     }
     
     [self.view updateWithThumbnail:thumbnail];
+}
+
+- (void)selectAnnotationInMap:(MKMapView *)mapview {
+    [self.view selectAnnotationViewInMap:mapview];
+}
+- (void)deselectAnnotationInMap:(MKMapView *)mapview {
+    [self.view deselectAnnotationViewInMap:mapview];
 }
 
 @end

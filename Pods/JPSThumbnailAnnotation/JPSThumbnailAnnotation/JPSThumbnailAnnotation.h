@@ -21,8 +21,14 @@
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
+@property (nonatomic, readwrite) JPSThumbnailAnnotationView *view;
+@property (nonatomic, readonly) JPSThumbnail *thumbnail;
+
 + (instancetype)annotationWithThumbnail:(JPSThumbnail *)thumbnail;
 - (id)initWithThumbnail:(JPSThumbnail *)thumbnail;
 - (void)updateThumbnail:(JPSThumbnail *)thumbnail animated:(BOOL)animated;
+
+- (void)selectAnnotationInMap:(MKMapView *)mapview;
+- (void)deselectAnnotationInMap:(MKMapView *)mapview;
 
 @end

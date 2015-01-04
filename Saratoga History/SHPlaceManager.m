@@ -31,7 +31,7 @@
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         for (PFObject *object in objects) {
-            [object pinInBackground];
+           // [object pinInBackground];
             float lat = [object[@"Latitude"] floatValue];
             float lng = [object[@"Longitude"] floatValue];
             int index = [object[@"Index"] intValue];
