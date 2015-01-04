@@ -104,9 +104,11 @@ static CGFloat const kJPSThumbnailAnnotationViewAnimationDuration = 0.25f;
 }
 
 - (void)selectAnnotationViewInMap:(MKMapView *)mapview {
+    [mapview selectAnnotation:self.annotation animated:YES];
     [self didSelectAnnotationViewInMap:mapview];
 }
 - (void)deselectAnnotationViewInMap:(MKMapView *)mapview {
+    [mapview deselectAnnotation:self.annotation animated:YES];
     [self didDeselectAnnotationViewInMap:mapview];
 }
 #pragma mark - Updating

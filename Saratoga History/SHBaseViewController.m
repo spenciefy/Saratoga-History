@@ -42,9 +42,17 @@
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             JPSThumbnailAnnotation *annotation = [annotations objectAtIndex:0];
-            [annotation selectAnnotationInMap:self.mapView];
-        });
+            if(annotation.view) {
+                [annotation selectAnnotationInMap:self.mapView];
+            } else {
+                int64_t delayInSeconds = 0.3;
+                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+                    [annotation selectAnnotationInMap:self.mapView];
 
+                });
+            }
+        });
     }];
     
 //    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
@@ -194,20 +202,18 @@
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
-    tapGesture.delegate = self;
-    UIView *temp = (UIView *)[sender view];
-    [temp addGestureRecognizer: tapGesture];
+//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
+//    tapGesture.delegate = self;
+//    UIView *temp = (UIView *)[sender view];
+//    [temp addGestureRecognizer: tapGesture];
 }
 
 - (void)flipToPage:(int)index {
     NSArray *viewControllers  = [NSArray arrayWithObjects:placeViewControllers[index], nil];
     
     if(index > [placeViewControllers indexOfObject:currentPlaceVC]) {
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
     } else {
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:NULL];
     }
 }
