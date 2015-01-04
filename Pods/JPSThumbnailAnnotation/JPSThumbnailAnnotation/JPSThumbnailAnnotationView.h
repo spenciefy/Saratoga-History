@@ -36,4 +36,7 @@ typedef NS_ENUM(NSInteger, JPSThumbnailAnnotationViewState) {
 
 - (void)updateWithThumbnail:(JPSThumbnail *)thumbnail;
 
+- (void)selectAnnotationViewInMap:(MKMapView *)mapview;
+- (void)deselectAnnotationViewInMap:(MKMapView *)mapview;
+
 @end

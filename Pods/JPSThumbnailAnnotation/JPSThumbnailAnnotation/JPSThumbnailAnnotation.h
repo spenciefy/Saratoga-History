@@ -25,4 +25,7 @@
 - (id)initWithThumbnail:(JPSThumbnail *)thumbnail;
 - (void)updateThumbnail:(JPSThumbnail *)thumbnail animated:(BOOL)animated;
 
+- (void)selectAnnotationInMap:(MKMapView *)mapview;
+- (void)deselectAnnotationInMap:(MKMapView *)mapview;
+
 @end

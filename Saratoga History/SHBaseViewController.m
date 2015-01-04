@@ -21,6 +21,7 @@
     NSArray *places;
     NSMutableArray *placeViewControllers;
     SHPlaceViewController *currentPlaceVC;
+    NSMutableArray *annotations;
 }
 
 
@@ -28,12 +29,24 @@
     [super viewDidLoad];
     self.menuBarView.layer.cornerRadius = 12;
     [self setupMapView];
+    
     [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
         placeViewControllers = [placeVCs mutableCopy];
         [self setupPageView];
-        NSArray *annotations = [self annotations];
+        annotations = [[NSMutableArray alloc] init];
+        annotations = [[self annotations] mutableCopy];
         [self.mapView addAnnotations:annotations];
+        
+        //hacky
+        int64_t delayInSeconds = 0.5;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            JPSThumbnailAnnotation *annotation = [annotations objectAtIndex:0];
+            [annotation selectAnnotationInMap:self.mapView];
+        });
+
     }];
+    
 //    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
 //    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
 //    NSData *imagesData = [NSKeyedArchiver archivedDataWithRootObject:images];
@@ -66,6 +79,7 @@
         
         for(int i = 0; i < places.count; i++) {
             SHPlaceViewController *placeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPlaceViewController"];
+            placeViewController.pageIndex = i;
             placeViewController.place = places[i];
             placeViewController.pageIndex = i;
             placeViewController.delegate = self;
@@ -104,7 +118,7 @@
     [self.pageViewController didMoveToParentViewController:self];
     
     [UIView animateWithDuration:0.3f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
     
     UISwipeGestureRecognizer *pageSwipeDown = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(shrinkCurrentPage:)];
@@ -139,10 +153,11 @@
     if(inside) {
         [self.mapView setUserTrackingMode:MKUserTrackingModeFollowWithHeading animated:YES];
     }
+    double zoom = log2(360 * ((self.mapView.frame.size.width/256) / self.mapView.region.span.longitudeDelta));
+    NSLog(@"zoom: %f",zoom);
 }
 
 - (NSArray *)annotations {
-    NSMutableArray *annotations = [[NSMutableArray alloc] init];
     for(SHPlace *place in places) {
         int index = place.index;
         
@@ -177,7 +192,7 @@
 - (void)shrinkCurrentPage: (id)sender {
     currentPlaceVC.expanded = NO;
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
     tapGesture.delegate = self;
@@ -189,12 +204,10 @@
     NSArray *viewControllers  = [NSArray arrayWithObjects:placeViewControllers[index], nil];
     
     if(index > [placeViewControllers indexOfObject:currentPlaceVC]) {
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
-
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
     } else {
-        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/1.9, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
-
+        self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:NULL];
     }
 }
@@ -266,8 +279,13 @@
        transitionCompleted:(BOOL)completed {
     
     if(completed) {
+        //pause the old player
         [currentPlaceVC pause];
+        JPSThumbnailAnnotation *prevAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
+        [prevAnnotation deselectAnnotationInMap:self.mapView];
         currentPlaceVC = [pageViewController.viewControllers lastObject];
+        JPSThumbnailAnnotation *newAnnotation = [annotations objectAtIndex:currentPlaceVC.pageIndex];
+        [newAnnotation selectAnnotationInMap:self.mapView];
     }
 }
 

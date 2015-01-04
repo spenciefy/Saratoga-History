@@ -53,4 +53,11 @@
     [self.view updateWithThumbnail:thumbnail];
 }
 
+- (void)selectAnnotationInMap:(MKMapView *)mapview {
+    [self.view selectAnnotationViewInMap:mapview];
+}
+- (void)deselectAnnotationInMap:(MKMapView *)mapview {
+    [self.view deselectAnnotationViewInMap:mapview];
+}
+
 @end
