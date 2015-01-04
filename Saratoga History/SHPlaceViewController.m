@@ -61,7 +61,7 @@
     [scrollView addSubview: textView];
     NSLog(@"%f", textView.frame.size.height + textView.frame.origin.y);
     
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, textView.frame.origin.y + textView.frame.size.height + 10);
+    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width, textView.frame.origin.y + textView.frame.size.height);
     NSLog(@"%f", scrollView.frame.size.height);
 }
 
