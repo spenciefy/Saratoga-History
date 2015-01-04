@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6C300C731A4DE39E0013C2AD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C300C721A4DE39E0013C2AD /* MapKit.framework */; };
 		6C300C761A4DE76D0013C2AD /* SHPlace.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C751A4DE76D0013C2AD /* SHPlace.m */; };
 		6C300C791A4DE9EA0013C2AD /* SHPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */; };
 		6C300C7C1A4DEAE50013C2AD /* SHPlaceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C300C7B1A4DEAE50013C2AD /* SHPlaceManager.m */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		53EF90C4D47D0D3BA1DFA5BE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		56D67C0F66EB0082D3060C8B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6C300C721A4DE39E0013C2AD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6C300C741A4DE76D0013C2AD /* SHPlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlace.h; sourceTree = "<group>"; };
 		6C300C751A4DE76D0013C2AD /* SHPlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHPlace.m; sourceTree = "<group>"; };
 		6C300C771A4DE9EA0013C2AD /* SHPlaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHPlaceViewController.h; sourceTree = "<group>"; };
@@ -95,7 +93,6 @@
 				6C886AA71A4F63D200088119 /* libsqlite3.dylib in Frameworks */,
 				6C300CA31A4E4DF80013C2AD /* CoreLocation.framework in Frameworks */,
 				6C300CA11A4E4DDE0013C2AD /* QuartzCore.framework in Frameworks */,
-				6C300C731A4DE39E0013C2AD /* MapKit.framework in Frameworks */,
 				76B8286C1DAE6CAD167CD72F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,7 +173,6 @@
 		6CC1EF591A441DC200F6702F = {
 			isa = PBXGroup;
 			children = (
-				6C300C721A4DE39E0013C2AD /* MapKit.framework */,
 				6CC1EF641A441DC200F6702F /* Saratoga History */,
 				6CC1EF7E1A441DC300F6702F /* Saratoga HistoryTests */,
 				6CC1EF631A441DC200F6702F /* Products */,
