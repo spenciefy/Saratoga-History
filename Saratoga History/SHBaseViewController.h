@@ -16,9 +16,10 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
-@property (strong, nonatomic) IBOutlet UIView *menuBarView;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 - (IBAction)resetMapRegion:(id)sender;
+- (IBAction)segmentedControlAction:(id)sender;
 @end

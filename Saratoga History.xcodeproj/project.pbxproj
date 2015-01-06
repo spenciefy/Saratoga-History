@@ -27,6 +27,12 @@
 		6CC1EF731A441DC200F6702F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CC1EF721A441DC200F6702F /* Images.xcassets */; };
 		6CC1EF821A441DC300F6702F /* Saratoga_HistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF811A441DC300F6702F /* Saratoga_HistoryTests.m */; };
 		6CC1EF8D1A44E8B700F6702F /* SHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */; };
+		6CD243641A59F77100F81DE8 /* SHTourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD243631A59F77100F81DE8 /* SHTourViewController.m */; };
+		6CD243671A5A04AE00F81DE8 /* SYFullAudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CD243661A5A04AE00F81DE8 /* SYFullAudioPlayerView.m */; };
+		6CD2436B1A5A10CF00F81DE8 /* previousBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD243681A5A10CF00F81DE8 /* previousBlack.png */; };
+		6CD2436C1A5A10CF00F81DE8 /* nextBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD243691A5A10CF00F81DE8 /* nextBlack.png */; };
+		6CD2436D1A5A10CF00F81DE8 /* playBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2436A1A5A10CF00F81DE8 /* playBlack.png */; };
+		6CD2436F1A5A114E00F81DE8 /* pauseBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CD2436E1A5A114E00F81DE8 /* pauseBlack.png */; };
 		6CE871C81A57AD6300C919EB /* SYAudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE871C71A57AD6300C919EB /* SYAudioPlayerView.m */; };
 		6CE871CB1A57AF2700C919EB /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CE871CA1A57AF2700C919EB /* UIView+AutoLayout.m */; };
 		76B8286C1DAE6CAD167CD72F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 53EF90C4D47D0D3BA1DFA5BE /* libPods.a */; };
@@ -77,6 +83,14 @@
 		6CC1EF811A441DC300F6702F /* Saratoga_HistoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Saratoga_HistoryTests.m; sourceTree = "<group>"; };
 		6CC1EF8B1A44E8B700F6702F /* SHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBaseViewController.h; sourceTree = "<group>"; };
 		6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBaseViewController.m; sourceTree = "<group>"; };
+		6CD243621A59F77100F81DE8 /* SHTourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTourViewController.h; sourceTree = "<group>"; };
+		6CD243631A59F77100F81DE8 /* SHTourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTourViewController.m; sourceTree = "<group>"; };
+		6CD243651A5A04AE00F81DE8 /* SYFullAudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYFullAudioPlayerView.h; sourceTree = "<group>"; };
+		6CD243661A5A04AE00F81DE8 /* SYFullAudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYFullAudioPlayerView.m; sourceTree = "<group>"; };
+		6CD243681A5A10CF00F81DE8 /* previousBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = previousBlack.png; sourceTree = "<group>"; };
+		6CD243691A5A10CF00F81DE8 /* nextBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nextBlack.png; sourceTree = "<group>"; };
+		6CD2436A1A5A10CF00F81DE8 /* playBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBlack.png; sourceTree = "<group>"; };
+		6CD2436E1A5A114E00F81DE8 /* pauseBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pauseBlack.png; sourceTree = "<group>"; };
 		6CE871C61A57AD6300C919EB /* SYAudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SYAudioPlayerView.h; sourceTree = "<group>"; };
 		6CE871C71A57AD6300C919EB /* SYAudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SYAudioPlayerView.m; sourceTree = "<group>"; };
 		6CE871C91A57AF2700C919EB /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
@@ -126,6 +140,8 @@
 			children = (
 				6CC1EF8B1A44E8B700F6702F /* SHBaseViewController.h */,
 				6CC1EF8C1A44E8B700F6702F /* SHBaseViewController.m */,
+				6CD243621A59F77100F81DE8 /* SHTourViewController.h */,
+				6CD243631A59F77100F81DE8 /* SHTourViewController.m */,
 				6C300C771A4DE9EA0013C2AD /* SHPlaceViewController.h */,
 				6C300C781A4DE9EA0013C2AD /* SHPlaceViewController.m */,
 			);
@@ -198,6 +214,10 @@
 				6C886A951A4EA65700088119 /* I Need A Dollar.mp3 */,
 				6C886A981A4EAA6700088119 /* pausebutton.png */,
 				6C886A991A4EAA6700088119 /* playbutton.png */,
+				6CD243681A5A10CF00F81DE8 /* previousBlack.png */,
+				6CD243691A5A10CF00F81DE8 /* nextBlack.png */,
+				6CD2436E1A5A114E00F81DE8 /* pauseBlack.png */,
+				6CD2436A1A5A10CF00F81DE8 /* playBlack.png */,
 				6CC1EF691A441DC200F6702F /* AppDelegate.h */,
 				6CC1EF6A1A441DC200F6702F /* AppDelegate.m */,
 				6CC1EF6F1A441DC200F6702F /* Main.storyboard */,
@@ -243,6 +263,8 @@
 			children = (
 				6CE871C61A57AD6300C919EB /* SYAudioPlayerView.h */,
 				6CE871C71A57AD6300C919EB /* SYAudioPlayerView.m */,
+				6CD243651A5A04AE00F81DE8 /* SYFullAudioPlayerView.h */,
+				6CD243661A5A04AE00F81DE8 /* SYFullAudioPlayerView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -339,11 +361,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C300CA41A4E64A80013C2AD /* Main.storyboard in Resources */,
+				6CD2436C1A5A10CF00F81DE8 /* nextBlack.png in Resources */,
 				6C886AB01A4FE8B100088119 /* SaratogaHistory2.jpg in Resources */,
 				6C886A9E1A4EAA6700088119 /* pausebutton.png in Resources */,
 				6C886AB11A4FE8B100088119 /* SaratogaHistoryImage.jpg in Resources */,
+				6CD2436D1A5A10CF00F81DE8 /* playBlack.png in Resources */,
 				6C886A9F1A4EAA6700088119 /* playbutton.png in Resources */,
 				6CC1EF731A441DC200F6702F /* Images.xcassets in Resources */,
+				6CD2436F1A5A114E00F81DE8 /* pauseBlack.png in Resources */,
+				6CD2436B1A5A10CF00F81DE8 /* previousBlack.png in Resources */,
 				6C886A961A4EA65700088119 /* I Need A Dollar.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,8 +421,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CD243641A59F77100F81DE8 /* SHTourViewController.m in Sources */,
 				6C300C7C1A4DEAE50013C2AD /* SHPlaceManager.m in Sources */,
 				6CE871CB1A57AF2700C919EB /* UIView+AutoLayout.m in Sources */,
+				6CD243671A5A04AE00F81DE8 /* SYFullAudioPlayerView.m in Sources */,
 				6C886AA51A4F4C4F00088119 /* EScrollerView.m in Sources */,
 				6CC1EF6B1A441DC200F6702F /* AppDelegate.m in Sources */,
 				6C886AAC1A4F7E2400088119 /* Reachability.m in Sources */,

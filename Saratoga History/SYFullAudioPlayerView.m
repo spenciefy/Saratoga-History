@@ -1,15 +1,15 @@
 //
-//  SYAudioPlayerView.m
+//  SYFullAudioPlayerView.m
 //  Saratoga History
 //
-//  Created by Spencer Yen on 1/2/15.
+//  Created by Spencer Yen on 1/4/15.
 //  Copyright (c) 2015 Spencer Yen. All rights reserved.
 //
 
-#import "SYAudioPlayerView.h"
+#import "SYFullAudioPlayerView.h"
 #import "UIView+AutoLayout.h"
 
-@implementation SYAudioPlayerView
+@implementation SYFullAudioPlayerView
 
 - (id)initWithFrame:(CGRect)frame audioFileURL:(NSURL *)fileURL autoplay:(BOOL)autoplay
 {
@@ -24,15 +24,29 @@
     _playButton = [UIButton new];
     _playButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_playButton addTarget:self action:@selector(playAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_playButton setImage:[UIImage imageNamed:@"playbutton.png"] forState:UIControlStateNormal];
+    [_playButton setImage:[UIImage imageNamed:@"playBlack.png"] forState:UIControlStateNormal];
     [self addSubview:_playButton];
     
     _stopButton = [UIButton new];
     _stopButton.translatesAutoresizingMaskIntoConstraints = NO;
     [_stopButton addTarget:self action:@selector(stopAudio:) forControlEvents:UIControlEventTouchUpInside];
-    [_stopButton setImage:[UIImage imageNamed:@"pausebutton.png"] forState:UIControlStateNormal];
+    [_stopButton setImage:[UIImage imageNamed:@"pauseBlack.png"] forState:UIControlStateNormal];
     [self.stopButton setHidden:YES];
     [self addSubview:_stopButton];
+    
+    _previousButton = [UIButton new];
+    _previousButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_previousButton addTarget:self action:@selector(previousTrack) forControlEvents:UIControlEventTouchUpInside];
+    [_previousButton setImage:[UIImage imageNamed:@"previousBlack.png"] forState:UIControlStateNormal];
+    [self.previousButton setHidden:YES];
+    [self addSubview:_previousButton];
+    
+    _nextButton = [UIButton new];
+    _nextButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [_nextButton addTarget:self action:@selector(nextTrack) forControlEvents:UIControlEventTouchUpInside];
+    [_nextButton setImage:[UIImage imageNamed:@"nextBlack.png"] forState:UIControlStateNormal];
+    [self.nextButton setHidden:YES];
+    [self addSubview:_nextButton];
     
     // Setup seekbar
     _seekBar = [UISlider new];
@@ -86,27 +100,38 @@
      */
     
     
+    [self.seekBar pinToSuperviewEdges:JRTViewPinBottomEdge inset:10];
+    [self.seekBar constrainToWidth:self.frame.size.width-30];
+    [self.seekBar pinToSuperviewEdges:JRTViewPinLeftEdge inset:25];
+    
     [self.endTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
     [self.endTime pinToSuperviewEdges:JRTViewPinRightEdge inset:10];
     [self.endTime constrainToWidth:30];
     
-    [self.seekBar pinToSuperviewEdges:JRTViewPinBottomEdge inset:10];
-    [self.seekBar constrainToWidth:self.frame.size.width-110];
-    [self.seekBar pinToSuperviewEdges:JRTViewPinRightEdge inset:43];
-    
     [self.currentTime pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.currentTime pinToSuperviewEdges:JRTViewPinRightEdge inset:self.frame.size.width-110 + 43];
+    [self.currentTime pinToSuperviewEdges:JRTViewPinLeftEdge inset:10];
     [self.currentTime constrainToWidth:30];
     
-    [self.playButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.playButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:5];
-    [self.playButton constrainToWidth:23.0];
-    [self.playButton constrainToHeight:23.0];
+    [self.playButton pinAttribute:NSLayoutAttributeCenterX toAttribute:NSLayoutAttributeCenterX ofItem:self];
+    [self.playButton pinToSuperviewEdges:JRTViewPinTopEdge inset:10];
+    [self.playButton constrainToWidth:50.0];
+    [self.playButton constrainToHeight:50.0];
     
     [self.stopButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.seekBar];
-    [self.stopButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:5];
-    [self.stopButton constrainToWidth:23.0];
-    [self.stopButton constrainToHeight:23.0];
+    [self.stopButton pinToSuperviewEdges:JRTViewPinTopEdge inset:10];
+    [self.stopButton constrainToWidth:50.0];
+    [self.stopButton constrainToHeight:50.0];
+    
+    [self.nextButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.playButton];
+    [self.nextButton pinToSuperviewEdges:JRTViewPinLeftEdge inset:5];
+    [self.nextButton pinEdges:JRTViewPinLeftEdge toSameEdgesOfView:self.playButton inset:30];
+    [self.nextButton constrainToWidth:50.0];
+    [self.nextButton constrainToHeight:50.0];
+    
+    [self.previousButton pinAttribute:NSLayoutAttributeCenterY toAttribute:NSLayoutAttributeCenterY ofItem:self.playButton];
+    [self.previousButton pinEdges:JRTViewPinRightEdge toSameEdgesOfView:self.playButton inset:30];
+    [self.previousButton constrainToWidth:50.0];
+    [self.previousButton constrainToHeight:50.0];
     
     //Autoplay
     if (self.autoplay == YES) {
@@ -206,6 +231,21 @@
     }
 }
 
+- (void)nextTrack
+{
+    if ([_delegate respondsToSelector:@selector(nextTrack)]) {
+        [_delegate nextTrack];
+    }
+}
+
+
+- (void)previousTrack
+{
+    if ([_delegate respondsToSelector:@selector(previousTrack)]) {
+        [_delegate previousTrack];
+    }
+}
+
 - (void)cleanUp
 {
     [self.audioPlayer stop];
@@ -224,4 +264,3 @@
 }
 
 @end
-

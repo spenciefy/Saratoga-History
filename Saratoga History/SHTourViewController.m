@@ -1,104 +1,27 @@
 //
-//  SHBaseViewController.m
+//  SHTourViewController.m
 //  Saratoga History
 //
-//  Created by Spencer Yen on 12/19/14.
-//  Copyright (c) 2014 Spencer Yen. All rights reserved.
+//  Created by Spencer Yen on 1/4/15.
+//  Copyright (c) 2015 Spencer Yen. All rights reserved.
 //
 
-@import MapKit;
+#import "SHTourViewController.h"
 
-#import "SHBaseViewController.h"
-#import <JPSThumbnailAnnotation/JPSThumbnailAnnotation.h>
-#import <Parse/Parse.h>
-@interface SHBaseViewController ()
-
-@property (nonatomic, strong) UIView *mainView;
-
-@end
-
-@implementation SHBaseViewController {
+@interface SHTourViewController () {
     NSArray *places;
     NSMutableArray *placeViewControllers;
     SHPlaceViewController *currentPlaceVC;
     NSMutableArray *annotations;
 }
 
+@end
+
+@implementation SHTourViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupMapView];
-    
-    [self loadPlaceViewControllersWithCompletion:^(NSArray *placeVCs, NSError *error) {
-        placeViewControllers = [placeVCs mutableCopy];
-        [self setupPageView];
-        annotations = [[NSMutableArray alloc] init];
-        annotations = [[self annotations] mutableCopy];
-        [self.mapView addAnnotations:annotations];
-        
-#warning hacky lol
-        int64_t delayInSeconds = 0.5;
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            JPSThumbnailAnnotation *annotation = [annotations objectAtIndex:0];
-            if(annotation.view) {
-                [annotation selectAnnotationInMap:self.mapView];
-            } else {
-                int64_t delayInSeconds = 0.3;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    [annotation selectAnnotationInMap:self.mapView];
-
-                });
-            }
-        });
-    }];
-    
-//    NSArray *images = @[UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistory2.jpg"], 1.0), UIImageJPEGRepresentation([UIImage imageNamed:@"SaratogaHistoryImage.jpg"], 1.0)];
-//    NSArray *captions = @[@"history museum so cool", @"wasai so pro"];
-//    NSData *imagesData = [NSKeyedArchiver archivedDataWithRootObject:images];
-//    
-//    PFFile *imageFile = [PFFile fileWithData:imagesData];
-//    
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"EH2qAPIoba"];
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"58HmKB5Ow6"];
-//    [[SHPlaceManager sharedInstance] uploadPhotos:imageFile withCaptions:captions toObjectID:@"1DcZ8K3xpr"];
-    
-    
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-        [self.locationManager requestWhenInUseAuthorization];
-    }
-    [self.locationManager startUpdatingLocation];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)loadPlaceViewControllersWithCompletion:(void (^)(NSArray *placeVCs, NSError *error))completionBlock {
-    [[SHPlaceManager sharedInstance] placesWithCompletion:^(NSArray *placesArray, NSError *error) {
-        places = placesArray;
-        NSMutableArray *placeVCs = [[NSMutableArray alloc] init];
-        
-        for(int i = 0; i < places.count; i++) {
-            SHPlaceViewController *placeViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SHPlaceViewController"];
-            placeViewController.pageIndex = i;
-            placeViewController.place = places[i];
-            placeViewController.delegate = self;
-            placeViewController.expanded = NO;
-            placeViewController.showsAudioView = YES;
-
-            [placeVCs addObject:placeViewController];
-            
-            if(i == places.count - 1) {
-                completionBlock(placeVCs, nil);
-            }
-        }
-    }];
 }
 
 - (void)setupPageView {
@@ -108,12 +31,11 @@
     self.pageViewController.delegate = self;
     
     SHPlaceViewController *startingViewController = placeViewControllers[0];
-    currentPlaceVC = startingViewController;
-
+    
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height + 10, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
-
+    
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
@@ -195,10 +117,10 @@
     [UIView animateWithDuration:0.4f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
         self.pageViewController.view.frame = CGRectMake(0, self.view.frame.size.height/2, self.view.frame.size.width, [[UIScreen mainScreen] bounds].size.height - 60);
     } completion:nil];
-//    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
-//    tapGesture.delegate = self;
-//    UIView *temp = (UIView *)[sender view];
-//    [temp addGestureRecognizer: tapGesture];
+    //    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(expandCurrentPage:)];
+    //    tapGesture.delegate = self;
+    //    UIView *temp = (UIView *)[sender view];
+    //    [temp addGestureRecognizer: tapGesture];
 }
 
 - (void)flipToPage:(int)index {
@@ -208,29 +130,6 @@
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
     } else {
         [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:YES completion:NULL];
-    }
-}
-
-- (void)requestAlwaysAuthorization
-{
-    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
-    
-    // If the status is denied or only granted for when in use, display an alert
-    if (status == kCLAuthorizationStatusAuthorizedWhenInUse || status == kCLAuthorizationStatusDenied) {
-        NSString *title;
-        title = (status == kCLAuthorizationStatusDenied) ? @"Location services are off" : @"Background location is not enabled";
-        NSString *message = @"To use background location you must turn on 'Always' in the Location Services Settings";
-        
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title
-                                                            message:message
-                                                           delegate:self
-                                                  cancelButtonTitle:@"Cancel"
-                                                  otherButtonTitles:@"Settings", nil];
-        [alertView show];
-    }
-    // The user has not enabled any location services. Request background authorization.
-    else if (status == kCLAuthorizationStatusNotDetermined) {
-        [self.locationManager requestAlwaysAuthorization];
     }
 }
 
@@ -311,15 +210,6 @@
     [self.mapView setRegion:region animated:YES];
 }
 
-- (IBAction)segmentedControlAction:(id)sender {
-    if(self.segmentedControl.selectedSegmentIndex == 0) {
-        //nothing
-    } else if(self.segmentedControl.selectedSegmentIndex == 1) {
-        [self performSegueWithIdentifier:@"ModalTourVC" sender:self];
-    } else {
-        //something for more
-    }
-}
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     if ([view conformsToProtocol:@protocol(JPSThumbnailAnnotationViewProtocol)]) {

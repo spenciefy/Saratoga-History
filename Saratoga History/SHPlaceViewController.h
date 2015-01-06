@@ -12,12 +12,13 @@
 
 @protocol SHPlaceViewControllerDelegate;
 
-@interface SHPlaceViewController : UIViewController <UIScrollViewDelegate>
+@interface SHPlaceViewController : UIViewController <UIScrollViewDelegate >
 
 @property (nonatomic, weak) id<SHPlaceViewControllerDelegate> delegate;
 @property (strong, nonatomic) SHPlace *place;
 @property (nonatomic, assign) int pageIndex;
 @property (nonatomic, assign) BOOL expanded;
+@property (nonatomic, assign) BOOL showsAudioView;
 
 @property (strong, nonatomic) SYAudioPlayerView *playerView;
 
